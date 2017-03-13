@@ -12,6 +12,7 @@
 		BBA05BCD1E76BCAB000DA002 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05BCC1E76BCAB000DA002 /* SignInViewController.swift */; };
 		BBA05BD21E76BCAB000DA002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BBA05BDD1E76C307000DA002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BDC1E76C307000DA002 /* LaunchScreen.storyboard */; };
+		BBC59C161E76C4C500987107 /* bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC59C151E76C4C500987107 /* bridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,8 @@
 		BBA05BD11E76BCAB000DA002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBA05BD61E76BCAB000DA002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA05BDC1E76C307000DA002 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBC59C141E76C4C400987107 /* DengLuYi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DengLuYi-Bridging-Header.h"; sourceTree = "<group>"; };
+		BBC59C151E76C4C500987107 /* bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bridge.m; sourceTree = "<group>"; };
 		C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DengLuYi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,13 +79,55 @@
 		BBA05BC91E76BCAB000DA002 /* DengLuYi */ = {
 			isa = PBXGroup;
 			children = (
+				BBC59C131E76C49900987107 /* Models */,
+				BBC59C121E76C49200987107 /* Views */,
+				BBC59C111E76C48B00987107 /* Controllers */,
+				BBC59C101E76C48400987107 /* Helpers */,
+				BBC59C0F1E76C47D00987107 /* Others */,
+			);
+			path = DengLuYi;
+			sourceTree = "<group>";
+		};
+		BBC59C0F1E76C47D00987107 /* Others */ = {
+			isa = PBXGroup;
+			children = (
 				BBA05BCA1E76BCAB000DA002 /* AppDelegate.swift */,
-				BBA05BCC1E76BCAB000DA002 /* SignInViewController.swift */,
 				BBA05BD11E76BCAB000DA002 /* Assets.xcassets */,
 				BBA05BD61E76BCAB000DA002 /* Info.plist */,
 				BBA05BDC1E76C307000DA002 /* LaunchScreen.storyboard */,
+				BBC59C151E76C4C500987107 /* bridge.m */,
+				BBC59C141E76C4C400987107 /* DengLuYi-Bridging-Header.h */,
 			);
-			path = DengLuYi;
+			name = Others;
+			sourceTree = "<group>";
+		};
+		BBC59C101E76C48400987107 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		BBC59C111E76C48B00987107 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BBA05BCC1E76BCAB000DA002 /* SignInViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BBC59C121E76C49200987107 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BBC59C131E76C49900987107 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +166,7 @@
 					BBA05BC61E76BCAB000DA002 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = L225J6UWE9;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -208,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC59C161E76C4C500987107 /* bridge.m in Sources */,
 				BBA05BCD1E76BCAB000DA002 /* SignInViewController.swift in Sources */,
 				BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */,
 			);
@@ -312,12 +359,15 @@
 			baseConfigurationReference = B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = L225J6UWE9;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DengLuYi/DengLuYi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -327,12 +377,14 @@
 			baseConfigurationReference = 6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = L225J6UWE9;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DengLuYi/DengLuYi-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -356,6 +408,7 @@
 				BBA05BDB1E76BCAB000DA002 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
