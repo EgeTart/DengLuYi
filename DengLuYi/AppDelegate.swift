@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
-        let signInViewController = SignInViewController()
+        let signInViewController = ETSignInViewController()
         let navigationController = UINavigationController(rootViewController: signInViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
