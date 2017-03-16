@@ -9,27 +9,11 @@
 import UIKit
 import SnapKit
 
-class ETSignInViewController: UIViewController {
+class ETSignInViewController: ETBaseViewController {
 
 // MARK: - Properties
-    lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "image_background")
-        return imageView
-    }()
-    
-    lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "icon_app_logo")
-        imageView.layer.cornerRadius = 20.0
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
     lazy var accountInputView: ETInputView = {
-        let inputView = ETInputView.createInputView(icon: UIImage(named: "icon_account"), placeholder: "请输入用户名或邮箱")
+        let inputView = ETInputView.createInputView(icon: UIImage(named: "icon_account"), placeholder: "请输入用户名或手机号码")
         return inputView
     }()
     
@@ -79,31 +63,15 @@ class ETSignInViewController: UIViewController {
         button.addTarget(self, action: #selector(ETSignInViewController.signInAction(sender:)), for: .touchUpInside)
         return button
     }()
-    
-    var logoHeightConstraint: Constraint!
 
 // MARK: - Life circle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(ETSignInViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ETSignInViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 
 // MARK: - Interface
     func setupInterface() {
-        self.view.addSubview(backgroundImageView)
-        self.view.addSubview(logoImageView)
         self.view.addSubview(accountInputView)
         self.view.addSubview(passwordInputView)
         self.view.addSubview(signUpPromptView)
@@ -113,16 +81,6 @@ class ETSignInViewController: UIViewController {
     }
     
     func setupViewsConstraints() {
-        backgroundImageView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
-        }
-        
-        logoImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.view).offset(60)
-            make.centerX.equalTo(self.view)
-            logoHeightConstraint = make.height.width.equalTo(100).constraint
-        }
-        
         accountInputView.snp.makeConstraints { (make) in
             make.height.equalTo(44)
             make.width.equalTo(260)
@@ -157,28 +115,6 @@ class ETSignInViewController: UIViewController {
     
     func signInAction(sender: UIButton) {
         debugLog()
-    }
-    
-    func keyboardWillShow(notification: Notification) {
-        guard let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else {
-            return
-        }
-        
-        logoHeightConstraint.update(offset: 0)
-        UIView.animate(withDuration: duration) { 
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    func keyboardWillHide(notification: Notification) {
-        guard let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else {
-            return
-        }
-        
-        logoHeightConstraint.update(offset: 100)
-        UIView.animate(withDuration: duration) {
-            self.view.layoutIfNeeded()
-        }
     }
 }
 

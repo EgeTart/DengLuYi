@@ -14,6 +14,8 @@
 		BBA05BCD1E76BCAB000DA002 /* ETSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05BCC1E76BCAB000DA002 /* ETSignInViewController.swift */; };
 		BBA05BD21E76BCAB000DA002 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BBA05BDD1E76C307000DA002 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BDC1E76C307000DA002 /* LaunchScreen.storyboard */; };
+		BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */; };
+		BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */; };
 		BBC59C161E76C4C500987107 /* bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC59C151E76C4C500987107 /* bridge.m */; };
 		BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC59C171E76DC4B00987107 /* ETInputView.swift */; };
 /* End PBXBuildFile section */
@@ -29,6 +31,8 @@
 		BBA05BD11E76BCAB000DA002 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBA05BD61E76BCAB000DA002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBA05BDC1E76C307000DA002 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSignUpViewController.swift; sourceTree = "<group>"; };
+		BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETBaseViewController.swift; sourceTree = "<group>"; };
 		BBC59C141E76C4C400987107 /* DengLuYi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DengLuYi-Bridging-Header.h"; sourceTree = "<group>"; };
 		BBC59C151E76C4C500987107 /* bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bridge.m; sourceTree = "<group>"; };
 		BBC59C171E76DC4B00987107 /* ETInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETInputView.swift; sourceTree = "<group>"; };
@@ -119,7 +123,9 @@
 		BBC59C111E76C48B00987107 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */,
 				BBA05BCC1E76BCAB000DA002 /* ETSignInViewController.swift */,
+				BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
+				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
 				BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */,
 				BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */,
 				BBC59C161E76C4C500987107 /* bridge.m in Sources */,
