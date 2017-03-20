@@ -110,7 +110,8 @@ class ETSignInViewController: ETBaseViewController {
     }
     
     func signUpAction(sender: UIButton) {
-        debugLog()
+        let signUpViewConstroller = ETSignUpViewController()
+        self.navigationController?.pushViewController(signUpViewConstroller, animated: true)
     }
     
     func signInAction(sender: UIButton) {
