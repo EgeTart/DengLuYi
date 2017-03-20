@@ -5,4 +5,5 @@ target 'DengLuYi' do
 	pod 'SnapKit'
 	pod 'SMSSDK'
 	pod 'LeanCloud'
+	pod 'MBProgressHUD'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import MBProgressHUD
 
 class ETBaseViewController: UIViewController {
     
@@ -59,6 +60,15 @@ class ETBaseViewController: UIViewController {
         let confirmAction = UIAlertAction(title: "确定", style: .default, handler: nil)
         alertController.addAction(confirmAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func showLoading(text: String) {
+        let loadingView = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingView.label.text = "\(text)..."
+    }
+    
+    func dismissLoading() {
+        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

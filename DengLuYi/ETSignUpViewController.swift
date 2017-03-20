@@ -117,7 +117,10 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
             return
         }
         
+        showLoading(text: "获取验证码")
         LCSMS.requestVerificationCode(mobilePhoneNumber: phoneNumber, applicationName: "登陆易", operation: "手机号码验证", timeToLive: 10) { (result: LCBooleanResult) in
+            self.dismissLoading()
+            
             if let error = result.error {
                 self.showError(message: error.localizedDescription)
             }
@@ -141,27 +144,19 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
             return
         }
         
+        showLoading(text: "验证中")
         LCSMS.verifyMobilePhoneNumber(phoneNumber, verificationCode: vertifyCode) { (result: LCBooleanResult) in
+            self.dismissLoading()
             
             if result.isSuccess {
                 self.user.username = LCString(userName)
                 self.user.mobilePhoneNumber = LCString(phoneNumber)
-                DispatchQueue.main.async {
-                    let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
-                    self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
-                }
+                let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
+                self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
             }
             else {
-                
                 let errorMessage = result.error!.reason!
                 self.showError(message: errorMessage)
-                
-//                self.user.username = LCString(userName)
-//                self.user.mobilePhoneNumber = LCString(phoneNumber)
-//                DispatchQueue.main.async {
-//                    let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
-//                    self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
-//                }
             }
         }
     }

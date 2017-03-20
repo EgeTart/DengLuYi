@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import LeanCloud
+import MBProgressHUD
 
 class ETSignInViewController: ETBaseViewController {
 
@@ -69,6 +70,9 @@ class ETSignInViewController: ETBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
+        
+        accountInputView.textField.text = "Egetart"
+        passwordInputView.textField.text = "anys45205"
     }
 
 // MARK: - Interface
@@ -120,7 +124,10 @@ class ETSignInViewController: ETBaseViewController {
             return
         }
         
+        showLoading(text: "登陆中")
         LCUser.logIn(username: account, password: password) { (result) in
+            self.dismissLoading()
+            
             switch result {
             case .success(let user):
                 let userName = user.username?.value
