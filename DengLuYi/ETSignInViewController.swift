@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import LeanCloud
 
 class ETSignInViewController: ETBaseViewController {
 
@@ -105,17 +106,30 @@ class ETSignInViewController: ETBaseViewController {
     }
     
 // MARK: - Actions
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
     func signUpAction(sender: UIButton) {
         let signUpViewConstroller = ETSignUpViewController()
         self.navigationController?.pushViewController(signUpViewConstroller, animated: true)
     }
     
     func signInAction(sender: UIButton) {
-        debugLog()
+        guard let account = accountInputView.textField.text,
+        let password = passwordInputView.textField.text,
+        !account.isEmpty, !password.isEmpty
+        else {
+            showError(message: "账号密码不能为空")
+            return
+        }
+        
+        LCUser.logIn(username: account, password: password) { (result) in
+            switch result {
+            case .success(let user):
+                let userName = user.username?.value
+                let masterKey = user["masterKey"]?.stringValue
+                print(userName!, masterKey!)
+            case .failure(let error):
+                self.showError(message: error.reason!)
+            }
+        }
     }
 }
 

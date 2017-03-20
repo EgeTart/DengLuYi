@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import LeanCloud
 
-class ETSignUpViewController: ETBaseViewController {
+class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate {
 
     lazy var userNameInputView: ETInputView = {
         let inputView = ETInputView.createInputView(icon: UIImage(named: "icon_account"), placeholder: "请输入用户名")
@@ -35,6 +36,7 @@ class ETSignUpViewController: ETBaseViewController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightText, for: .highlighted)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.addTarget(self, action: #selector(ETSignUpViewController.getVertifyCodeAction(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -45,12 +47,22 @@ class ETSignUpViewController: ETBaseViewController {
         button.setTitleColor(UIColor.white, for: .normal)
         button.setTitleColor(UIColor.lightText, for: .highlighted)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.addTarget(self, action: #selector(ETSignUpViewController.nextStepAction(sender:)), for: .touchUpInside)
         return button
     }()
+    
+    var user: LCUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
+        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        
+        user = LCUser()
+        userNameInputView.textField.text = "Egetart"
+        phoneNumberInputView.textField.text = "18813756456"
+        vertifyCodeInputView.textField.text = "123456"
     }
 
     func setupInterface() {
@@ -91,7 +103,66 @@ class ETSignUpViewController: ETBaseViewController {
         
         nextStepButton.snp.makeConstraints { (make) in
             make.leading.trailing.height.equalTo(phoneNumberInputView)
-            make.top.equalTo(vertifyCodeInputView.snp.bottom).offset(30)
+            make.top.equalTo(vertifyCodeInputView.snp.bottom).offset(40)
+        }
+    }
+    
+// MARK: - Actions
+    func getVertifyCodeAction(sender: UIButton) {
+        
+        // TODO: 检查手机号码格式是否正确
+        
+        guard let phoneNumber = phoneNumberInputView.textField.text, !phoneNumber.isEmpty else {
+            showError(message: "请输入手机号码")
+            return
+        }
+        
+        LCSMS.requestVerificationCode(mobilePhoneNumber: phoneNumber, applicationName: "登陆易", operation: "手机号码验证", timeToLive: 10) { (result: LCBooleanResult) in
+            if let error = result.error {
+                self.showError(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    func nextStepAction(sender: UIButton) {
+        
+        self.view.endEditing(true)
+        
+        guard let userName = userNameInputView.textField.text,
+        let phoneNumber = phoneNumberInputView.textField.text,
+        !userName.isEmpty, !phoneNumber.isEmpty
+        else {
+            showError(message: "用户名和手机号不能留空")
+            return
+        }
+        
+        guard let vertifyCode = vertifyCodeInputView.textField.text, !vertifyCode.isEmpty else {
+            showError(message: "请输入验证码")
+            return
+        }
+        
+        LCSMS.verifyMobilePhoneNumber(phoneNumber, verificationCode: vertifyCode) { (result: LCBooleanResult) in
+            
+            if result.isSuccess {
+                self.user.username = LCString(userName)
+                self.user.mobilePhoneNumber = LCString(phoneNumber)
+                DispatchQueue.main.async {
+                    let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
+                    self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
+                }
+            }
+            else {
+                
+                let errorMessage = result.error!.reason!
+                self.showError(message: errorMessage)
+                
+//                self.user.username = LCString(userName)
+//                self.user.mobilePhoneNumber = LCString(phoneNumber)
+//                DispatchQueue.main.async {
+//                    let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
+//                    self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
+//                }
+            }
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LeanCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: signInViewController)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        SMSSDK.registerApp("1c39d3aacd5e0", withSecret: "74842b54cea445da614504af36a450aa")
+        
+        LeanCloud.initialize(applicationID: "SATbhYXlk3DluRdPa12P1dBo-gzGzoHsz", applicationKey: "7KplsEEj4Yk7Taqm0t1aPCE7")
         
         return true
     }

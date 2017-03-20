@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2040DA68A192F22F6782126E /* Pods_DengLuYi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */; };
+		BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */; };
 		BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAD1E778FC000169112 /* DEBUG.swift */; };
 		BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05BCA1E76BCAB000DA002 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.release.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.release.xcconfig"; sourceTree = "<group>"; };
 		B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.debug.xcconfig"; sourceTree = "<group>"; };
+		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
 		BB955FAB1E77856700169112 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB955FAD1E778FC000169112 /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEBUG.swift; sourceTree = "<group>"; };
 		BBA05BC71E76BCAB000DA002 /* DengLuYi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DengLuYi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +128,7 @@
 				BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */,
 				BBA05BCC1E76BCAB000DA002 /* ETSignInViewController.swift */,
 				BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */,
+				BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
+				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
 				BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */,
 				BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */,
 				BBC59C161E76C4C500987107 /* bridge.m in Sources */,

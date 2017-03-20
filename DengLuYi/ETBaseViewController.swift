@@ -28,7 +28,7 @@ class ETBaseViewController: UIViewController {
     }()
     
     var logoHeightConstraint: Constraint!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,8 +54,15 @@ class ETBaseViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+    func showError(message: String) {
+        let alertController = UIAlertController(title: "错误提示", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "确定", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func keyboardWillShow(notification: Notification) {
@@ -80,4 +87,7 @@ class ETBaseViewController: UIViewController {
         }
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
