@@ -12,13 +12,6 @@ import MBProgressHUD
 
 class ETBaseViewController: UIViewController {
     
-    lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "image_background")
-        return imageView
-    }()
-    
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -32,14 +25,9 @@ class ETBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.addSubview(backgroundImageView)
+        self.view.backgroundColor = UIColor.dlyThemeColor()
+        
         self.view.addSubview(logoImageView)
-        
-        backgroundImageView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view)
-        }
-        
         logoImageView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(60)
             make.centerX.equalTo(self.view)
@@ -72,6 +60,7 @@ class ETBaseViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        debugLog()
         self.view.endEditing(true)
     }
     

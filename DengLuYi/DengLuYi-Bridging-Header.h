@@ -6,3 +6,5 @@
 #import <SMS_SDK/SMSSDK.h>
 //关闭访问通讯录需要导入的头文件
 #import <SMS_SDK/Extend/SMSSDK+AddressBookMethods.h>
+
+#import "SWRevealViewController.h"

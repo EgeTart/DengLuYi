@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2040DA68A192F22F6782126E /* Pods_DengLuYi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */; };
+		BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */; };
+		BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */; };
+		BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */; };
 		BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */; };
 		BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAD1E778FC000169112 /* DEBUG.swift */; };
@@ -24,6 +27,10 @@
 /* Begin PBXFileReference section */
 		6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.release.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.release.xcconfig"; sourceTree = "<group>"; };
 		B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.debug.xcconfig"; sourceTree = "<group>"; };
+		BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHomeViewController.swift; sourceTree = "<group>"; };
+		BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSideBarViewController.swift; sourceTree = "<group>"; };
 		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
 		BB955FAB1E77856700169112 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB955FAD1E778FC000169112 /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEBUG.swift; sourceTree = "<group>"; };
@@ -68,6 +75,15 @@
 				C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB1199CB1E7FF8810089B550 /* SMRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */,
+				BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */,
+			);
+			name = SMRevealViewController;
 			sourceTree = "<group>";
 		};
 		BBA05BBE1E76BCAA000DA002 = {
@@ -125,10 +141,13 @@
 		BBC59C111E76C48B00987107 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB1199CB1E7FF8810089B550 /* SMRevealViewController */,
 				BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */,
 				BBA05BCC1E76BCAB000DA002 /* ETSignInViewController.swift */,
 				BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */,
 				BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */,
+				BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */,
+				BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -275,11 +294,14 @@
 			files = (
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
+				BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */,
 				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
+				BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */,
 				BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */,
 				BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */,
 				BBC59C161E76C4C500987107 /* bridge.m in Sources */,
 				BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */,
+				BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */,
 				BBA05BCD1E76BCAB000DA002 /* ETSignInViewController.swift in Sources */,
 				BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */,
 			);

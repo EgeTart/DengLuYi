@@ -109,6 +109,19 @@ class ETSignInViewController: ETBaseViewController {
         }
     }
     
+    func showRevealController() {
+        let homeViewController = ETHomeViewController()
+        let frontNavigationController = UINavigationController(rootViewController: homeViewController)
+        frontNavigationController.navigationBar.barTintColor = UIColor.dlyThemeColor()
+        frontNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        let sideBarViewController = ETSideBarViewController()
+        let rearNavigationController = UINavigationController(rootViewController: sideBarViewController)
+        
+        let revealController = SWRevealViewController(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
+        self.navigationController?.pushViewController(revealController!, animated: true)
+    }
+    
 // MARK: - Actions
     func signUpAction(sender: UIButton) {
         let signUpViewConstroller = ETSignUpViewController()
@@ -133,6 +146,7 @@ class ETSignInViewController: ETBaseViewController {
                 let userName = user.username?.value
                 let masterKey = user["masterKey"]?.stringValue
                 print(userName!, masterKey!)
+                self.showRevealController()
             case .failure(let error):
                 self.showError(message: error.reason!)
             }

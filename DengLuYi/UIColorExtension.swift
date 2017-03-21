@@ -20,4 +20,8 @@ extension UIColor {
     class func dlyBodyFontColor() -> UIColor {
         return UIColor(red: 85.0 / 255.0, green: 85.0 / 255.0, blue: 85.0 / 255.0, alpha: 1.0)
     }
+    
+    class func dlyThemeColor() -> UIColor {
+        return UIColor(red: 22.0 / 255.0, green: 42.0 / 255.0, blue: 62.0 / 255.0, alpha: 1.0)
+    }
 }
