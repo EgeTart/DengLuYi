@@ -8,9 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2040DA68A192F22F6782126E /* Pods_DengLuYi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */; };
+		81CBF72485A89668B07A27CA /* Pods_PasswordManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB23317C53BD10094BB805A /* Pods_PasswordManager.framework */; };
+		BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
+		BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
+		BB048B071E827F0D00DB7128 /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048B061E827F0D00DB7128 /* ETAccount.swift */; };
+		BB048B091E82833600DB7128 /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048B061E827F0D00DB7128 /* ETAccount.swift */; };
+		BB048B0A1E82833600DB7128 /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048B061E827F0D00DB7128 /* ETAccount.swift */; };
+		BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */; };
 		BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */; };
 		BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */; };
+		BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17092B1E80FF9B001F8AA5 /* ActionViewController.swift */; };
+		BB17092F1E80FF9B001F8AA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB17092D1E80FF9B001F8AA5 /* MainInterface.storyboard */; };
+		BB1709331E80FF9B001F8AA5 /* PasswordManager.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */; };
 		BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAD1E778FC000169112 /* DEBUG.swift */; };
@@ -24,13 +34,49 @@
 		BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC59C171E76DC4B00987107 /* ETInputView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BB1709311E80FF9B001F8AA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBA05BBF1E76BCAA000DA002 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB1709281E80FF9B001F8AA5;
+			remoteInfo = PasswordManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB1709371E80FF9B001F8AA5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BB1709331E80FF9B001F8AA5 /* PasswordManager.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5EB23317C53BD10094BB805A /* Pods_PasswordManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasswordManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.release.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.release.xcconfig"; sourceTree = "<group>"; };
+		82418F3964391FEC4F6641E3 /* Pods-PasswordManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordManager/Pods-PasswordManager.debug.xcconfig"; sourceTree = "<group>"; };
+		82A9D3CA5AA403AE8A767F8E /* Pods-PasswordManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordManager/Pods-PasswordManager.release.xcconfig"; sourceTree = "<group>"; };
 		B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.debug.xcconfig"; sourceTree = "<group>"; };
+		BB048AEA1E826FE400DB7128 /* PasswordManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PasswordManager.entitlements; sourceTree = "<group>"; };
+		BB048AEB1E8270AA00DB7128 /* DengLuYi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DengLuYi.entitlements; sourceTree = "<group>"; };
+		BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETDatabaseManager.swift; sourceTree = "<group>"; };
+		BB048AF81E8275DF00DB7128 /* AppExtensionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppExtensionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB048B061E827F0D00DB7128 /* ETAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ETAccount.swift; path = ../AppExtensionKit/ETAccount.swift; sourceTree = "<group>"; };
 		BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHomeViewController.swift; sourceTree = "<group>"; };
 		BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSideBarViewController.swift; sourceTree = "<group>"; };
+		BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PasswordManager.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB17092B1E80FF9B001F8AA5 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		BB17092E1E80FF9B001F8AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		BB1709301E80FF9B001F8AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
 		BB955FAB1E77856700169112 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB955FAD1E778FC000169112 /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEBUG.swift; sourceTree = "<group>"; };
@@ -49,6 +95,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BB048AF41E8275DF00DB7128 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB1709261E80FF9B001F8AA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81CBF72485A89668B07A27CA /* Pods_PasswordManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBA05BC41E76BCAB000DA002 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +126,8 @@
 			children = (
 				B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */,
 				6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */,
+				82418F3964391FEC4F6641E3 /* Pods-PasswordManager.debug.xcconfig */,
+				82A9D3CA5AA403AE8A767F8E /* Pods-PasswordManager.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -73,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */,
+				5EB23317C53BD10094BB805A /* Pods_PasswordManager.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,10 +150,22 @@
 			name = SMRevealViewController;
 			sourceTree = "<group>";
 		};
+		BB17092A1E80FF9B001F8AA5 /* PasswordManager */ = {
+			isa = PBXGroup;
+			children = (
+				BB048AEA1E826FE400DB7128 /* PasswordManager.entitlements */,
+				BB17092B1E80FF9B001F8AA5 /* ActionViewController.swift */,
+				BB17092D1E80FF9B001F8AA5 /* MainInterface.storyboard */,
+				BB1709301E80FF9B001F8AA5 /* Info.plist */,
+			);
+			path = PasswordManager;
+			sourceTree = "<group>";
+		};
 		BBA05BBE1E76BCAA000DA002 = {
 			isa = PBXGroup;
 			children = (
 				BBA05BC91E76BCAB000DA002 /* DengLuYi */,
+				BB17092A1E80FF9B001F8AA5 /* PasswordManager */,
 				BBA05BC81E76BCAB000DA002 /* Products */,
 				5A6B0CAABC21F1B53641411B /* Pods */,
 				6620E546C24260F042930386 /* Frameworks */,
@@ -100,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				BBA05BC71E76BCAB000DA002 /* DengLuYi.app */,
+				BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */,
+				BB048AF81E8275DF00DB7128 /* AppExtensionKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +185,7 @@
 		BBA05BC91E76BCAB000DA002 /* DengLuYi */ = {
 			isa = PBXGroup;
 			children = (
+				BB048AEB1E8270AA00DB7128 /* DengLuYi.entitlements */,
 				BBC59C131E76C49900987107 /* Models */,
 				BBC59C121E76C49200987107 /* Views */,
 				BBC59C111E76C48B00987107 /* Controllers */,
@@ -134,6 +213,7 @@
 			children = (
 				BB955FAB1E77856700169112 /* UIColorExtension.swift */,
 				BB955FAD1E778FC000169112 /* DEBUG.swift */,
+				BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -163,13 +243,61 @@
 		BBC59C131E76C49900987107 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BB048B061E827F0D00DB7128 /* ETAccount.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		BB048AF51E8275DF00DB7128 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		BB048AF71E8275DF00DB7128 /* AppExtensionKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB048B011E8275DF00DB7128 /* Build configuration list for PBXNativeTarget "AppExtensionKit" */;
+			buildPhases = (
+				BB048AF31E8275DF00DB7128 /* Sources */,
+				BB048AF41E8275DF00DB7128 /* Frameworks */,
+				BB048AF51E8275DF00DB7128 /* Headers */,
+				BB048AF61E8275DF00DB7128 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AppExtensionKit;
+			productName = AppExtensionKit;
+			productReference = BB048AF81E8275DF00DB7128 /* AppExtensionKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BB1709281E80FF9B001F8AA5 /* PasswordManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB1709341E80FF9B001F8AA5 /* Build configuration list for PBXNativeTarget "PasswordManager" */;
+			buildPhases = (
+				28FD5CCE27C16F3BEA34C739 /* [CP] Check Pods Manifest.lock */,
+				BB1709251E80FF9B001F8AA5 /* Sources */,
+				BB1709261E80FF9B001F8AA5 /* Frameworks */,
+				BB1709271E80FF9B001F8AA5 /* Resources */,
+				B54472D333134C924CF06D18 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PasswordManager;
+			productName = PasswordManager;
+			productReference = BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BBA05BC61E76BCAB000DA002 /* DengLuYi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBA05BD91E76BCAB000DA002 /* Build configuration list for PBXNativeTarget "DengLuYi" */;
@@ -180,10 +308,12 @@
 				BBA05BC51E76BCAB000DA002 /* Resources */,
 				39839763075B2257D0C131BB /* [CP] Embed Pods Frameworks */,
 				F036A9C59CB3A0F834FE45B0 /* [CP] Copy Pods Resources */,
+				BB1709371E80FF9B001F8AA5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BB1709321E80FF9B001F8AA5 /* PBXTargetDependency */,
 			);
 			name = DengLuYi;
 			productName = DengLuYi;
@@ -201,11 +331,32 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Egetart;
 				TargetAttributes = {
+					BB048AF71E8275DF00DB7128 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = L225J6UWE9;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					BB1709281E80FF9B001F8AA5 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = L225J6UWE9;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					BBA05BC61E76BCAB000DA002 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = L225J6UWE9;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -223,11 +374,29 @@
 			projectRoot = "";
 			targets = (
 				BBA05BC61E76BCAB000DA002 /* DengLuYi */,
+				BB1709281E80FF9B001F8AA5 /* PasswordManager */,
+				BB048AF71E8275DF00DB7128 /* AppExtensionKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BB048AF61E8275DF00DB7128 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB1709271E80FF9B001F8AA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */,
+				BB17092F1E80FF9B001F8AA5 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBA05BC51E76BCAB000DA002 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,6 +410,21 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		1339ECFD1EB3C72A76BFD293 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		28FD5CCE27C16F3BEA34C739 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,6 +454,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B54472D333134C924CF06D18 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PasswordManager/Pods-PasswordManager-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F036A9C59CB3A0F834FE45B0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -288,13 +487,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BB048AF31E8275DF00DB7128 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB048B071E827F0D00DB7128 /* ETAccount.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BB1709251E80FF9B001F8AA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB048B0A1E82833600DB7128 /* ETAccount.swift in Sources */,
+				BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
+				BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBA05BC31E76BCAB000DA002 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
+				BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
 				BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */,
+				BB048B091E82833600DB7128 /* ETAccount.swift in Sources */,
 				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
 				BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */,
 				BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */,
@@ -309,7 +528,113 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BB1709321E80FF9B001F8AA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB1709281E80FF9B001F8AA5 /* PasswordManager */;
+			targetProxy = BB1709311E80FF9B001F8AA5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB17092D1E80FF9B001F8AA5 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB17092E1E80FF9B001F8AA5 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		BB048B021E8275DF00DB7128 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L225J6UWE9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AppExtensionKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.AppExtensionKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BB048B031E8275DF00DB7128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L225J6UWE9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = AppExtensionKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.AppExtensionKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BB1709351E80FF9B001F8AA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82418F3964391FEC4F6641E3 /* Pods-PasswordManager.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Extension;
+				CODE_SIGN_ENTITLEMENTS = PasswordManager/PasswordManager.entitlements;
+				DEVELOPMENT_TEAM = L225J6UWE9;
+				INFOPLIST_FILE = PasswordManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi.PasswordManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB1709361E80FF9B001F8AA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82A9D3CA5AA403AE8A767F8E /* Pods-PasswordManager.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Extension;
+				CODE_SIGN_ENTITLEMENTS = PasswordManager/PasswordManager.entitlements;
+				DEVELOPMENT_TEAM = L225J6UWE9;
+				INFOPLIST_FILE = PasswordManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi.PasswordManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BBA05BD71E76BCAB000DA002 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,8 +730,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DengLuYi/DengLuYi.entitlements;
 				DEVELOPMENT_TEAM = L225J6UWE9;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -423,8 +750,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D59D5B5460785275DC0EC7A /* Pods-DengLuYi.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DengLuYi/DengLuYi.entitlements;
 				DEVELOPMENT_TEAM = L225J6UWE9;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -439,6 +768,23 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BB048B011E8275DF00DB7128 /* Build configuration list for PBXNativeTarget "AppExtensionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB048B021E8275DF00DB7128 /* Debug */,
+				BB048B031E8275DF00DB7128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BB1709341E80FF9B001F8AA5 /* Build configuration list for PBXNativeTarget "PasswordManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB1709351E80FF9B001F8AA5 /* Debug */,
+				BB1709361E80FF9B001F8AA5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BBA05BC21E76BCAA000DA002 /* Build configuration list for PBXProject "DengLuYi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
