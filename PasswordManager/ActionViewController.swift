@@ -13,8 +13,7 @@ class ActionViewController: UIViewController {
 
     @IBOutlet weak var accountTableView: UITableView!
     
-    var accounts: [ETAccount]!
-    
+    lazy var accounts = [ETAccount]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +24,32 @@ class ActionViewController: UIViewController {
         accountTableView.dataSource = self
         accountTableView.delegate = self
         accountTableView.tableFooterView = UIView()
+        
+        handleRequest()
     }
-
-    @IBAction func done() {
-        // Return any edited content to the host app.
-        // This template doesn't do anything, so we just echo the passed in items.
-        self.extensionContext!.completeRequest(returningItems: self.extensionContext!.inputItems, completionHandler: nil)
+    
+    @IBAction func cancelRequestAction(_ sender: UIBarButtonItem) {
+        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+    }
+    
+    func handleRequest() {
+        guard let item = self.extensionContext?.inputItems.first as? NSExtensionItem,
+        let provider = item.attachments?.first as? NSItemProvider
+        else { return }
+        
+        //TODO: 从provider.registeredTypeIdentifiers.last得到操作类型, 根据操作类型执行不同操作
+        provider.loadItem(forTypeIdentifier: provider.registeredTypeIdentifiers.last as! String, options: nil) { (itemDictionary, error) in
+            let dict = itemDictionary as! NSDictionary
+            print(dict)
+        }
+    }
+    
+    func completeRequest(account: ETAccount) {
+        let accountInfoDict: NSDictionary = ["userName": account.userName, "password": account.password]
+        let provider = NSItemProvider(item: accountInfoDict, typeIdentifier: kUTTypePropertyList as String)
+        let item = NSExtensionItem()
+        item.attachments = [provider]
+        self.extensionContext?.completeRequest(returningItems: [item], completionHandler: nil)
     }
 }
 
@@ -43,8 +62,13 @@ extension ActionViewController: UITableViewDataSource {
         let account = accounts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCellReuseIdentifier", for: indexPath)
         cell.textLabel?.text = account.userName
-        cell.detailTextLabel?.text = account.appIdentifier
+        cell.detailTextLabel?.text = account.accountIdentifier
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        completeRequest(account: accounts[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
