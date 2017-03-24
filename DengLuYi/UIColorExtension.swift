@@ -24,4 +24,8 @@ extension UIColor {
     class func dlyThemeColor() -> UIColor {
         return UIColor(red: 22.0 / 255.0, green: 42.0 / 255.0, blue: 62.0 / 255.0, alpha: 1.0)
     }
+    
+    class func dlyLineColor() -> UIColor {
+        return UIColor(red: 204.0 / 255.0, green: 204.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)
+    }
 }

@@ -14,7 +14,7 @@ class ETDatabaseManager {
     static let shared = ETDatabaseManager()
     
     private let database: FMDatabase! = {
-        let databasePath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.dengLuYiExtension")?.appendingPathComponent("account.sqlite").path
+        let databasePath = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.PasswordExtension")?.appendingPathComponent("account.sqlite").path
         print(databasePath!)
         let database = FMDatabase(path: databasePath)
         return database
@@ -30,7 +30,7 @@ class ETDatabaseManager {
             return
         }
         
-        let createAccountTableSql = "CREATE TABLE IF NOT EXISTS user_account(id INTEGER PRIMARY KEY AUTOINCREMENT, account_name TEXT NOT NULL UNIQUE, account_identifier TEXT NOT NULL UNIQUE, user_name TEXT NOT NULL, email TEXT, phone_number TEXT, password TEXT NOT NULL)"
+        let createAccountTableSql = "CREATE TABLE IF NOT EXISTS user_account(id INTEGER PRIMARY KEY AUTOINCREMENT, account_name TEXT NOT NULL UNIQUE, user_name TEXT NOT NULL, email TEXT, phone_number TEXT, password TEXT NOT NULL)"
         let isSuccess = database.executeStatements(createAccountTableSql, withResultBlock: nil)
         
         if isSuccess {
@@ -42,20 +42,19 @@ class ETDatabaseManager {
     }
     
     func loadUserAccounts() -> [ETAccount] {
-        let queryAcountsSql = "SELECT account_name, account_identifier, user_name, password, phone_number, email FROM user_account"
+        let queryAcountsSql = "SELECT account_name, user_name, password, phone_number, email FROM user_account"
         
         var accounts = [ETAccount]()
         do {
             let resultSet = try database.executeQuery(queryAcountsSql, values: nil)
             while resultSet.next() {
                 let accountName = resultSet.string(forColumn: "account_name")!
-                let accountIdentifier = resultSet.string(forColumn: "account_identifier")!
                 let userName = resultSet.string(forColumn: "user_name")!
                 let password = resultSet.string(forColumn: "password")!
                 let phoneNumber = resultSet.string(forColumn: "phone_number")
                 let email = resultSet.string(forColumn: "email")
                 
-                let account = ETAccount(accountName: accountName, accountIdentifier: accountIdentifier, userName: userName, password: password, phoneNumber: phoneNumber, email: email)
+                let account = ETAccount(accountName: accountName, userName: userName, password: password, phoneNumber: phoneNumber, email: email)
                 accounts.append(account)
             }
         }
@@ -66,15 +65,32 @@ class ETDatabaseManager {
         return accounts
     }
     
-    func generateMockData() {
-        let insertAccountSql = "INSERT INTO user_account(account_identifier, user_name, password) VALUES(?, ?, ?)"
-        let insertAccountSql = "INSERT INTO user_account(account_name, account_identifier, user_name, password) VALUES(?, ?, ?, ?)"
+    func addAcount(account: ETAccount) {
         
+        var values = [account.accountName, account.userName, account.password]
+        var fields = "account_name, user_name, password"
+        var valuesPlaceholder = "?, ?, ?"
+        
+        if let email = account.email {
+            values.append(email)
+            fields.append(", email")
+            valuesPlaceholder.append(", ?")
+        }
+        
+        if let phoneNumber = account.phoneNumber {
+            values.append(phoneNumber)
+            fields.append(", phone_number")
+            valuesPlaceholder.append(", ?")
+        }
+        
+        let insertAccountSql = "INSERT INTO user_account(\(fields)) VALUES(\(valuesPlaceholder))"
+
         do {
-            try database.executeUpdate(insertAccountSql, values: ["com.egetart.DengLuYi", "dengLuYi", "Hello1234DLY"])
+            try database.executeUpdate(insertAccountSql, values: values)
         }
         catch {
             print(error)
         }
     }
+    
 }

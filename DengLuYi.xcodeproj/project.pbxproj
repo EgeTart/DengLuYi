@@ -11,8 +11,6 @@
 		81CBF72485A89668B07A27CA /* Pods_PasswordManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB23317C53BD10094BB805A /* Pods_PasswordManager.framework */; };
 		BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
 		BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
-		BB048B091E82833600DB7128 /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048B061E827F0D00DB7128 /* ETAccount.swift */; };
-		BB048B0A1E82833600DB7128 /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048B061E827F0D00DB7128 /* ETAccount.swift */; };
 		BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */; };
 		BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */; };
@@ -24,6 +22,10 @@
 		BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
 		BB441B561E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
 		BB441B571E84BE2C00CDA05C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
+		BB441B591E84C63100CDA05C /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B581E84C63100CDA05C /* ETAccount.swift */; };
+		BB441B5A1E84C63D00CDA05C /* ETAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B581E84C63100CDA05C /* ETAccount.swift */; };
+		BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */; };
+		BB441B5E1E8500C600CDA05C /* ETAccountInfoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B5D1E8500C600CDA05C /* ETAccountInfoInputView.swift */; };
 		BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAD1E778FC000169112 /* DEBUG.swift */; };
 		BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05BCA1E76BCAB000DA002 /* AppDelegate.swift */; };
@@ -69,7 +71,6 @@
 		BB048AEA1E826FE400DB7128 /* PasswordManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PasswordManager.entitlements; sourceTree = "<group>"; };
 		BB048AEB1E8270AA00DB7128 /* DengLuYi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DengLuYi.entitlements; sourceTree = "<group>"; };
 		BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETDatabaseManager.swift; sourceTree = "<group>"; };
-		BB048B061E827F0D00DB7128 /* ETAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ETAccount.swift; path = ../AppExtensionKit/ETAccount.swift; sourceTree = "<group>"; };
 		BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHomeViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +81,9 @@
 		BB1709301E80FF9B001F8AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
 		BB441B541E84B77A00CDA05C /* ETAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccountCell.swift; sourceTree = "<group>"; };
+		BB441B581E84C63100CDA05C /* ETAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccount.swift; sourceTree = "<group>"; };
+		BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAddAccountViewController.swift; sourceTree = "<group>"; };
+		BB441B5D1E8500C600CDA05C /* ETAccountInfoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccountInfoInputView.swift; sourceTree = "<group>"; };
 		BB955FAB1E77856700169112 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB955FAD1E778FC000169112 /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEBUG.swift; sourceTree = "<group>"; };
 		BBA05BC71E76BCAB000DA002 /* DengLuYi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DengLuYi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,6 +226,7 @@
 				BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */,
 				BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */,
 				BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */,
+				BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -231,6 +236,7 @@
 			children = (
 				BBC59C171E76DC4B00987107 /* ETInputView.swift */,
 				BB441B541E84B77A00CDA05C /* ETAccountCell.swift */,
+				BB441B5D1E8500C600CDA05C /* ETAccountInfoInputView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -238,7 +244,7 @@
 		BBC59C131E76C49900987107 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BB048B061E827F0D00DB7128 /* ETAccount.swift */,
+				BB441B581E84C63100CDA05C /* ETAccount.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -300,7 +306,7 @@
 				TargetAttributes = {
 					BB1709281E80FF9B001F8AA5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = L225J6UWE9;
+						DevelopmentTeam = 4E9S8T6MSQ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -310,7 +316,7 @@
 					};
 					BBA05BC61E76BCAB000DA002 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = L225J6UWE9;
+						DevelopmentTeam = 4E9S8T6MSQ;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -444,8 +450,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB441B5A1E84C63D00CDA05C /* ETAccount.swift in Sources */,
 				BB441B561E84B77A00CDA05C /* ETAccountCell.swift in Sources */,
-				BB048B0A1E82833600DB7128 /* ETAccount.swift in Sources */,
 				BB441B571E84BE2C00CDA05C /* UIColorExtension.swift in Sources */,
 				BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
 				BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */,
@@ -456,11 +462,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB441B591E84C63100CDA05C /* ETAccount.swift in Sources */,
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
+				BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */,
 				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
 				BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
 				BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */,
-				BB048B091E82833600DB7128 /* ETAccount.swift in Sources */,
 				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
 				BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */,
 				BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */,
@@ -469,6 +476,7 @@
 				BBC59C161E76C4C500987107 /* bridge.m in Sources */,
 				BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */,
 				BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */,
+				BB441B5E1E8500C600CDA05C /* ETAccountInfoInputView.swift in Sources */,
 				BBA05BCD1E76BCAB000DA002 /* ETSignInViewController.swift in Sources */,
 				BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */,
 			);
@@ -502,11 +510,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PasswordManager/PasswordManager.entitlements;
-				DEVELOPMENT_TEAM = L225J6UWE9;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4E9S8T6MSQ;
 				INFOPLIST_FILE = PasswordManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi.PasswordManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nophish.DengLuYi.PasswordManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -520,11 +529,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PasswordManager/PasswordManager.entitlements;
-				DEVELOPMENT_TEAM = L225J6UWE9;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4E9S8T6MSQ;
 				INFOPLIST_FILE = PasswordManager/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi.PasswordManager;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nophish.DengLuYi.PasswordManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -631,11 +641,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DengLuYi/DengLuYi.entitlements;
-				DEVELOPMENT_TEAM = L225J6UWE9;
+				DEVELOPMENT_TEAM = 4E9S8T6MSQ;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nophish.DengLuYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DengLuYi/DengLuYi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -651,11 +661,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = DengLuYi/DengLuYi.entitlements;
-				DEVELOPMENT_TEAM = L225J6UWE9;
+				DEVELOPMENT_TEAM = 4E9S8T6MSQ;
 				INFOPLIST_FILE = DengLuYi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.egetart.DengLuYi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nophish.DengLuYi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DengLuYi/DengLuYi-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

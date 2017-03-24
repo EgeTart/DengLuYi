@@ -32,6 +32,7 @@ class ETHomeViewController: UIViewController {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 4, height: 4)
         button.layer.shadowOpacity = 0.5
+        button.addTarget(self, action: #selector(ETHomeViewController.addAccountAction(sender:)), for: .touchUpInside)
         return button
     }()
     
@@ -50,12 +51,16 @@ class ETHomeViewController: UIViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         accounts = ETDatabaseManager.shared.loadUserAccounts()
+        accountTableView.reloadData()
     }
     
     func setupInterface() {
-        self.title = "我的账户列表"
+        self.title = "账户列表"
         
         self.view.addSubview(accountTableView)
         self.view.addSubview(addAcountButton)
@@ -77,8 +82,13 @@ class ETHomeViewController: UIViewController {
         }
     }
     
-    func showSideBarAction(sender: UIBarButtonItem) {
+    @objc private func showSideBarAction(sender: UIBarButtonItem) {
         self.revealViewController().revealToggle(animated: true)
+    }
+    
+    @objc private func addAccountAction(sender: UIButton) {
+        let addAccountViewController = ETAddAccountViewController()
+        self.navigationController?.pushViewController(addAccountViewController, animated: true)
     }
 }
 

@@ -113,12 +113,15 @@ class ETSignInViewController: ETBaseViewController {
         let homeViewController = ETHomeViewController()
         let frontNavigationController = UINavigationController(rootViewController: homeViewController)
         frontNavigationController.navigationBar.barTintColor = UIColor.dlyThemeColor()
+        frontNavigationController.navigationBar.tintColor = UIColor.white
+        frontNavigationController.navigationBar.isTranslucent = false
         frontNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         let sideBarViewController = ETSideBarViewController()
         let rearNavigationController = UINavigationController(rootViewController: sideBarViewController)
         
         let revealController = SWRevealViewController(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
+        revealController?.rearViewRevealWidth = 230.0 * (self.view.frame.width / 375.0)
         self.navigationController?.pushViewController(revealController!, animated: true)
     }
     
@@ -148,7 +151,12 @@ class ETSignInViewController: ETBaseViewController {
                 print(userName!, masterKey!)
                 self.showRevealController()
             case .failure(let error):
-                self.showError(message: error.reason!)
+                if let reason = error.reason {
+                    self.showError(message: reason)
+                }
+                else {
+                    self.showError(message: "请检查您的网络连接")
+                }
             }
         }
     }
