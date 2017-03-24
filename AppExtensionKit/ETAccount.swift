@@ -10,13 +10,15 @@ import Foundation
 
 public struct ETAccount {
     
+    var accountName: String
     var accountIdentifier: String
     var userName: String
     var email: String?
     var phoneNumber: String?
     var password: String
     
-    init(accountIdentifier: String, userName: String, password: String, phoneNumber: String? = nil, email: String? = nil) {
+    init(accountName: String, accountIdentifier: String, userName: String, password: String, phoneNumber: String? = nil, email: String? = nil) {
+        self.accountName = accountName
         self.accountIdentifier = accountIdentifier
         self.userName = userName
         self.password = password

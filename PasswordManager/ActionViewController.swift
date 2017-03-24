@@ -15,15 +15,20 @@ class ActionViewController: UIViewController {
     
     lazy var accounts = [ETAccount]()
     
+    fileprivate let cellReuseIdentifier = "AccountCellReuseIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         accounts = ETDatabaseManager.shared.loadUserAccounts()
         print(accounts.count)
         
+        accountTableView.register(ETAccountCell.self, forCellReuseIdentifier: self.cellReuseIdentifier)
         accountTableView.dataSource = self
         accountTableView.delegate = self
         accountTableView.tableFooterView = UIView()
+        accountTableView.estimatedRowHeight = 60
+        accountTableView.rowHeight = UITableViewAutomaticDimension
         
         handleRequest()
     }
@@ -59,16 +64,14 @@ extension ActionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let account = accounts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AccountCellReuseIdentifier", for: indexPath)
-        cell.textLabel?.text = account.userName
-        cell.detailTextLabel?.text = account.accountIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath) as! ETAccountCell
+        cell.configureCell(account: accounts[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         completeRequest(account: accounts[indexPath.row])
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

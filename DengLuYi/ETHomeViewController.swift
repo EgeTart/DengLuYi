@@ -15,10 +15,11 @@ class ETHomeViewController: UIViewController {
     
     lazy var accountTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: self.cellReuseIdentifier)
+        tableView.register(ETAccountCell.self, forCellReuseIdentifier: self.cellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 50.0
+        tableView.estimatedRowHeight = 60
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         return tableView
     }()
@@ -41,12 +42,16 @@ class ETHomeViewController: UIViewController {
         return buttonItem
     }()
     
+    fileprivate lazy var accounts = [ETAccount]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInterface()
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        accounts = ETDatabaseManager.shared.loadUserAccounts()
     }
     
     func setupInterface() {
@@ -79,13 +84,13 @@ class ETHomeViewController: UIViewController {
 
 extension ETHomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return accounts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath)
-        cell.imageView?.image = UIImage(named: "icon_key")
-        cell.textLabel?.text = "Hello"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! ETAccountCell
+        cell.configureCell(account: accounts[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
 }

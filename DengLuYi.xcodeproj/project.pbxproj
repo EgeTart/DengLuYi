@@ -21,6 +21,9 @@
 		BB17092F1E80FF9B001F8AA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB17092D1E80FF9B001F8AA5 /* MainInterface.storyboard */; };
 		BB1709331E80FF9B001F8AA5 /* PasswordManager.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */; };
+		BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
+		BB441B561E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
+		BB441B571E84BE2C00CDA05C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
 		BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAD1E778FC000169112 /* DEBUG.swift */; };
 		BBA05BCB1E76BCAB000DA002 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA05BCA1E76BCAB000DA002 /* AppDelegate.swift */; };
@@ -76,6 +79,7 @@
 		BB17092E1E80FF9B001F8AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		BB1709301E80FF9B001F8AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
+		BB441B541E84B77A00CDA05C /* ETAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccountCell.swift; sourceTree = "<group>"; };
 		BB955FAB1E77856700169112 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BB955FAD1E778FC000169112 /* DEBUG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEBUG.swift; sourceTree = "<group>"; };
 		BBA05BC71E76BCAB000DA002 /* DengLuYi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DengLuYi.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				BBC59C171E76DC4B00987107 /* ETInputView.swift */,
+				BB441B541E84B77A00CDA05C /* ETAccountCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -439,7 +444,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB441B561E84B77A00CDA05C /* ETAccountCell.swift in Sources */,
 				BB048B0A1E82833600DB7128 /* ETAccount.swift in Sources */,
+				BB441B571E84BE2C00CDA05C /* UIColorExtension.swift in Sources */,
 				BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
 				BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */,
 			);
@@ -455,6 +462,7 @@
 				BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */,
 				BB048B091E82833600DB7128 /* ETAccount.swift in Sources */,
 				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
+				BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */,
 				BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */,
 				BBC59C181E76DC4B00987107 /* ETInputView.swift in Sources */,
 				BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */,
