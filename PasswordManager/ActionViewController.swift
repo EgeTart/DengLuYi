@@ -8,6 +8,7 @@
 
 import UIKit
 import MobileCoreServices
+import LocalAuthentication
 
 class ActionViewController: UIViewController {
 
@@ -20,8 +21,7 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        accounts = ETDatabaseManager.shared.loadUserAccounts()
-        print(accounts.count)
+        self.title = "选择账户"
         
         accountTableView.register(ETAccountCell.self, forCellReuseIdentifier: self.cellReuseIdentifier)
         accountTableView.dataSource = self
@@ -30,11 +30,64 @@ class ActionViewController: UIViewController {
         accountTableView.estimatedRowHeight = 60
         accountTableView.rowHeight = UITableViewAutomaticDimension
         
-        handleRequest()
+        authenticateUsre()
+        
+//        handleRequest()
     }
     
-    @IBAction func cancelRequestAction(_ sender: UIBarButtonItem) {
-        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func authenticateUsre() {
+        let context = LAContext()
+        let reason = "使用指纹验证进行此次付款"
+        var error: NSError?
+        
+        if #available(iOS 9.0, *) {
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason, reply: { (success: Bool, error: Error?) in
+                    if success {
+                        OperationQueue.main.addOperation {
+                            self.navigationController?.setNavigationBarHidden(false, animated: false)
+                            self.accounts = ETDatabaseManager.shared.loadUserAccounts()
+                            self.accountTableView.reloadData()
+                        }
+                    }
+                })
+            }
+        } else {
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply: { (success: Bool, error: Error?) in
+                    if success {
+                        OperationQueue.main.addOperation {
+                            self.navigationController?.setNavigationBarHidden(false, animated: false)
+                            self.accounts = ETDatabaseManager.shared.loadUserAccounts()
+                            self.accountTableView.reloadData()
+                        }
+                    }
+                })
+            }
+        }
+        
+        if let laError = error as? LAError {
+            switch laError.code {
+            case .touchIDNotEnrolled:
+                self.showError(message: "这台设备未包含任何指纹信息")
+            case .passcodeNotSet:
+                self.showError(message: "这台设备尚未设置密码")
+            default:
+                self.showError(message: "Touch ID 不可用")
+            }
+        }
+    }
+    
+    private func showError(message: String) {
+        let alertController = UIAlertController(title: "错误提示", message: message, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "确定", style: .default, handler: nil)
+        alertController.addAction(confirmAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func handleRequest() {
@@ -55,6 +108,10 @@ class ActionViewController: UIViewController {
         let item = NSExtensionItem()
         item.attachments = [provider]
         self.extensionContext?.completeRequest(returningItems: [item], completionHandler: nil)
+    }
+    
+    @IBAction func cancelRequestAction(_ sender: UIBarButtonItem) {
+        self.extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
     }
 }
 
