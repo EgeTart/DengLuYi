@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LeanCloud
+import AVOSCloud
 
 class ETUserInfoSetupViewController: ETBaseViewController {
 
@@ -40,9 +40,9 @@ class ETUserInfoSetupViewController: ETBaseViewController {
         return button
     }()
     
-    var user: LCUser!
+    var user: AVUser!
     
-    init(user: LCUser) {
+    init(user: AVUser) {
         super.init(nibName: nil, bundle: nil)
         self.user = user
     }
@@ -104,22 +104,39 @@ class ETUserInfoSetupViewController: ETBaseViewController {
             showError(message: "两次密码不一致")
             return false
         }
-        
-        user.password = LCString(password)
-        user.set("masterKey", value: masterKey)
-        
+    
+        user.password = (password)
+        user.setObject(masterKey, forKey: "masterKey")
+
         return true
+    }
+    
+    func showRevealController() {
+        let homeViewController = ETHomeViewController()
+        let frontNavigationController = UINavigationController(rootViewController: homeViewController)
+        frontNavigationController.navigationBar.barTintColor = UIColor.dlyThemeColor()
+        frontNavigationController.navigationBar.tintColor = UIColor.white
+        frontNavigationController.navigationBar.isTranslucent = false
+        frontNavigationController.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        let sideBarViewController = ETSideBarViewController()
+        let rearNavigationController = UINavigationController(rootViewController: sideBarViewController)
+        
+        let revealController = SWRevealViewController(rearViewController: rearNavigationController, frontViewController: frontNavigationController)
+        revealController?.rearViewRevealWidth = 230.0 * (self.view.frame.width / 375.0)
+        self.navigationController?.pushViewController(revealController!, animated: true)
     }
     
 // MARK: - Actions
     func signUpAction(sender: UIButton) {
+        
         if inputValidCheck() {
-            user.signUp({ (result: LCBooleanResult) in
-                if let errorMessage = result.error?.reason {
-                    self.showError(message: errorMessage)
+            user.signUpInBackground({ (success: Bool, error: Error?) in
+                if let error = error {
+                    self.showError(message: error.localizedDescription)
                 }
                 else {
-                    
+                    self.showRevealController()
                 }
             })
         }

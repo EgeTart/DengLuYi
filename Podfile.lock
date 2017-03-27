@@ -1,34 +1,23 @@
 PODS:
-  - Alamofire (4.2.0)
+  - AVOSCloud (4.1.0)
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - LeanCloud (10.0.0):
-    - LeanCloud/Storage (= 10.0.0)
-  - LeanCloud/Storage (10.0.0):
-    - Alamofire (~> 4.2.0)
   - MBProgressHUD (1.0.0)
-  - MOBFoundation_IDFA (2.2.15)
-  - SMSSDK (2.1.4):
-    - MOBFoundation_IDFA
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
+  - AVOSCloud
   - FMDB
-  - LeanCloud
   - MBProgressHUD
-  - SMSSDK
   - SnapKit
 
 SPEC CHECKSUMS:
-  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AVOSCloud: c7a0514461c5cd612aa7917ed23379ca667d81c9
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  LeanCloud: 0a6a0d52e33dd43d998ab256cc83f6c4954607b8
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MOBFoundation_IDFA: c5741d4cf9a08daa24203fe9e1f90ff1ab7403e5
-  SMSSDK: 4b5c95fc74522969187123df61b2c9567f48435e
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 0ed9014b75e514b2dfa451243187287d687813c3
+PODFILE CHECKSUM: 82beb098ea670ee49bef1f2ffdd85a316037fd09
 
 COCOAPODS: 1.2.0

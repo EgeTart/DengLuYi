@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import LeanCloud
+import AVOSCloud
 import MBProgressHUD
 
 class ETSignInViewController: ETBaseViewController {
@@ -141,22 +141,17 @@ class ETSignInViewController: ETBaseViewController {
         }
         
         showLoading(text: "登陆中")
-        LCUser.logIn(username: account, password: password) { (result) in
+        
+        AVUser.logInWithUsername(inBackground: account, password: password) { (user: AVUser?, error: Error?) in
             self.dismissLoading()
-            
-            switch result {
-            case .success(let user):
-                let userName = user.username?.value
-                let masterKey = user["masterKey"]?.stringValue
+            if let error = error as? NSError {
+                
+            }
+            else {
+                let userName = user?.username
+                let masterKey = user?.object(forKey: "masterKey")
                 print(userName!, masterKey!)
                 self.showRevealController()
-            case .failure(let error):
-                if let reason = error.reason {
-                    self.showError(message: reason)
-                }
-                else {
-                    self.showError(message: "请检查您的网络连接")
-                }
             }
         }
     }

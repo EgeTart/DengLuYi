@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import LeanCloud
+import AVOSCloud
 
 class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate {
 
@@ -51,7 +51,7 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
         return button
     }()
     
-    var user: LCUser!
+    var user: AVUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,7 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         
-        user = LCUser()
+        user = AVUser()
         userNameInputView.textField.text = "Egetart"
         phoneNumberInputView.textField.text = "18813756456"
         vertifyCodeInputView.textField.text = "123456"
@@ -118,10 +118,10 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
         }
         
         showLoading(text: "获取验证码")
-        LCSMS.requestVerificationCode(mobilePhoneNumber: phoneNumber, applicationName: "登陆易", operation: "手机号码验证", timeToLive: 10) { (result: LCBooleanResult) in
+        
+        AVOSCloud.requestSmsCode(withPhoneNumber: phoneNumber, appName: "登陆易", operation: "手机号码验证", timeToLive: 10) { (success: Bool, error: Error?) in
             self.dismissLoading()
-            
-            if let error = result.error {
+            if let error = error {
                 self.showError(message: error.localizedDescription)
             }
         }
@@ -145,18 +145,18 @@ class ETSignUpViewController: ETBaseViewController, UIGestureRecognizerDelegate 
         }
         
         showLoading(text: "验证中")
-        LCSMS.verifyMobilePhoneNumber(phoneNumber, verificationCode: vertifyCode) { (result: LCBooleanResult) in
+        AVOSCloud.verifySmsCode(vertifyCode, mobilePhoneNumber: phoneNumber) { (success: Bool, error: Error?) in
             self.dismissLoading()
-            
-            if result.isSuccess {
-                self.user.username = LCString(userName)
-                self.user.mobilePhoneNumber = LCString(phoneNumber)
+            if success {
+                self.user.username = userName
+                self.user.mobilePhoneNumber = phoneNumber
                 let userInfoSetupViewController = ETUserInfoSetupViewController(user: self.user)
                 self.navigationController?.pushViewController(userInfoSetupViewController, animated: true)
             }
             else {
-                let errorMessage = result.error!.reason!
-                self.showError(message: errorMessage)
+                if let error = error as? NSError {
+                    self.showError(message: error.localizedDescription)
+                }
             }
         }
     }

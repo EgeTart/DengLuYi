@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import LeanCloud
+import AVOSCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.statusBarStyle = .lightContent
         
-        
+        AVOSCloud.setApplicationId("SATbhYXlk3DluRdPa12P1dBo-gzGzoHsz", clientKey: "7KplsEEj4Yk7Taqm0t1aPCE7")
         
         return true
     }

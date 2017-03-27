@@ -8,7 +8,7 @@
 
 import UIKit
 import SnapKit
-import LeanCloud
+import AVOSCloud
 
 fileprivate class ETTableHeaderView: UIView {
     
@@ -22,7 +22,7 @@ fileprivate class ETTableHeaderView: UIView {
     
     lazy var userNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Egetart"
+        label.text = " "
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
@@ -90,6 +90,10 @@ class ETSideBarViewController: UIViewController {
         setupViewsConstraints()
         tableHeaderView.layoutIfNeeded()
         optionTableView.tableHeaderView = tableHeaderView
+        
+        if let currentUser = AVUser.current() {
+            tableHeaderView.userNameLabel.text = currentUser.username
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -124,7 +128,8 @@ extension ETSideBarViewController: UITableViewDataSource {
 }
 
 extension ETSideBarViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.revealViewController().revealToggle(animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
