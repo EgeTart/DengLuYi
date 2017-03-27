@@ -6,6 +6,7 @@ target 'DengLuYi' do
 	pod 'AVOSCloud'
 	pod 'SnapKit'
 	pod 'FMDB'
+	pod 'SDWebImage'
 end
 
 target 'PasswordManager' do

@@ -19,6 +19,7 @@
 		BB17092F1E80FF9B001F8AA5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB17092D1E80FF9B001F8AA5 /* MainInterface.storyboard */; };
 		BB1709331E80FF9B001F8AA5 /* PasswordManager.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */; };
+		BB3E682F1E89178500669656 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3E682E1E89178500669656 /* UIImageExtension.swift */; };
 		BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
 		BB441B561E84B77A00CDA05C /* ETAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB441B541E84B77A00CDA05C /* ETAccountCell.swift */; };
 		BB441B571E84BE2C00CDA05C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB955FAB1E77856700169112 /* UIColorExtension.swift */; };
@@ -80,6 +81,7 @@
 		BB17092E1E80FF9B001F8AA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		BB1709301E80FF9B001F8AA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB1CC59D1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserInfoSetupViewController.swift; sourceTree = "<group>"; };
+		BB3E682E1E89178500669656 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		BB441B541E84B77A00CDA05C /* ETAccountCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccountCell.swift; sourceTree = "<group>"; };
 		BB441B581E84C63100CDA05C /* ETAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAccount.swift; sourceTree = "<group>"; };
 		BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETAddAccountViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				BB955FAB1E77856700169112 /* UIColorExtension.swift */,
 				BB955FAD1E778FC000169112 /* DEBUG.swift */,
 				BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */,
+				BB3E682E1E89178500669656 /* UIImageExtension.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */,
 				BBBADED31E7ADC3D008815CD /* ETSignUpViewController.swift in Sources */,
 				BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */,
+				BB3E682F1E89178500669656 /* UIImageExtension.swift in Sources */,
 				BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */,
 				BB1CC59E1E7F7FDE007BA2A0 /* ETUserInfoSetupViewController.swift in Sources */,
 				BB441B551E84B77A00CDA05C /* ETAccountCell.swift in Sources */,

@@ -4,20 +4,25 @@ PODS:
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
   - MBProgressHUD (1.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
   - AVOSCloud
   - FMDB
   - MBProgressHUD
+  - SDWebImage
   - SnapKit
 
 SPEC CHECKSUMS:
   AVOSCloud: c7a0514461c5cd612aa7917ed23379ca667d81c9
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 82beb098ea670ee49bef1f2ffdd85a316037fd09
+PODFILE CHECKSUM: 5ac072ad8d3a6b96ca851499bb0749a04a8acf11
 
 COCOAPODS: 1.2.0
