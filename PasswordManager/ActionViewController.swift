@@ -42,7 +42,7 @@ class ActionViewController: UIViewController {
     
     private func authenticateUsre() {
         let context = LAContext()
-        let reason = "使用指纹验证进行此次付款"
+        let reason = "使用指纹验证获取账户信息"
         var error: NSError?
         
         if #available(iOS 9.0, *) {

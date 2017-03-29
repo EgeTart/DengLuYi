@@ -7,6 +7,8 @@ target 'DengLuYi' do
 	pod 'SnapKit'
 	pod 'FMDB'
 	pod 'SDWebImage'
+	pod 'QRCodeReader.swift'
+	pod 'Alamofire'
 end
 
 target 'PasswordManager' do

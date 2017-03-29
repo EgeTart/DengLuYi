@@ -11,6 +11,9 @@ import SnapKit
 import AVOSCloud
 import MBProgressHUD
 import SDWebImage
+import QRCodeReader
+import AVFoundation
+import Alamofire
 
 fileprivate class ETTableHeaderView: UIView {
     
@@ -81,7 +84,7 @@ class ETSideBarViewController: UIViewController {
         return tableHeaderView
     }()
     
-    lazy var optionTableView: UITableView = {
+    private lazy var optionTableView: UITableView = {
         let tableView = UITableView()
         tableView.tableHeaderView = self.tableHeaderView
         tableView.tableFooterView = UIView()
@@ -92,11 +95,23 @@ class ETSideBarViewController: UIViewController {
         return tableView
     }()
     
-    lazy var imagePicker: UIImagePickerController = {
+    private lazy var imagePicker: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
         return picker
+    }()
+    
+    fileprivate lazy var qrCodeReaderController: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder()
+        builder.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
+        builder.showSwitchCameraButton = false
+        builder.showTorchButton = true
+        builder.cancelButtonTitle = "取消"
+        let readerController = QRCodeReaderViewController(builder: builder)
+        readerController.delegate = self
+        readerController.title = "扫码登陆"
+        return readerController
     }()
 
     lazy var options = [
@@ -138,7 +153,7 @@ class ETSideBarViewController: UIViewController {
         }
     }
     
-    func showImagePicker() {
+    private func showImagePicker() {
         let actionSheet = UIAlertController(title: "更换头像", message: nil, preferredStyle: .actionSheet)
         
         let takePhotoAction = UIAlertAction(title: "拍照上传", style: .default) { (action: UIAlertAction) in
@@ -160,10 +175,19 @@ class ETSideBarViewController: UIViewController {
         present(actionSheet, animated: true, completion: nil)
     }
     
-    func changeAvatarAction(sender: UIControl) {
-        debugLog()
+    @objc private func changeAvatarAction(sender: UIControl) {
         showImagePicker()
     }
+    
+    fileprivate func showError(errorMessage: String) {
+        let alertController = UIAlertController(title: "错误提示", message: errorMessage, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "确定", style: .default, handler: { action in
+            self.qrCodeReaderController.startScanning()
+        })
+        alertController.addAction(confirmAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
 }
 
 extension ETSideBarViewController: UITableViewDataSource {
@@ -182,7 +206,20 @@ extension ETSideBarViewController: UITableViewDataSource {
 
 extension ETSideBarViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         self.revealViewController().revealToggle(animated: true)
+        
+        guard let frontViewController = self.revealViewController().frontViewController as? UINavigationController else {
+            return
+        }
+        
+        switch indexPath.row {
+        case 0:
+            frontViewController.pushViewController(qrCodeReaderController, animated: true)
+        default:
+            break
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -210,4 +247,47 @@ extension ETSideBarViewController: UIImagePickerControllerDelegate, UINavigation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+extension ETSideBarViewController: QRCodeReaderViewControllerDelegate {
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        print(result.value)
+        
+        let loginInfos = result.value.components(separatedBy: "|")
+        
+        if loginInfos.count != 3 {
+            showError(errorMessage: "未能识别的二维码")
+            reader.stopScanning()
+            return
+        }
+        
+        let apiUrl = loginInfos[0].replacingOccurrences(of: "-", with: "/")
+        let uuid = loginInfos[1]
+        
+        request(apiUrl + "scan", method: .post, parameters: ["uuid": uuid], encoding: JSONEncoding.default, headers: nil).responseString { (response: DataResponse<String>) in
+            
+            if let result = response.value {
+                if result == "confirm" {
+                    let loginConfirmViewController = ETLoginConfirmController()
+                    loginConfirmViewController.apiUrl = apiUrl
+                    loginConfirmViewController.uuid = uuid
+                    reader.present(loginConfirmViewController, animated: true, completion: nil)
+                }
+                else {
+                    
+                }
+                let _ = reader.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+    
+    }
+    
+
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        let _ = reader.navigationController?.popViewController(animated: true)
+    }
+
 }

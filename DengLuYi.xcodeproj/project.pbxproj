@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2040DA68A192F22F6782126E /* Pods_DengLuYi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8706A9B991A41DFC3305BD0 /* Pods_DengLuYi.framework */; };
 		81CBF72485A89668B07A27CA /* Pods_PasswordManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB23317C53BD10094BB805A /* Pods_PasswordManager.framework */; };
+		BB0146341E8B96C200AA7F77 /* ETLoginConfirmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0146331E8B96C200AA7F77 /* ETLoginConfirmController.swift */; };
 		BB048AF11E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
 		BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
 		BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		82418F3964391FEC4F6641E3 /* Pods-PasswordManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordManager/Pods-PasswordManager.debug.xcconfig"; sourceTree = "<group>"; };
 		82A9D3CA5AA403AE8A767F8E /* Pods-PasswordManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasswordManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasswordManager/Pods-PasswordManager.release.xcconfig"; sourceTree = "<group>"; };
 		B082D7825572779036BBFDF9 /* Pods-DengLuYi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DengLuYi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DengLuYi/Pods-DengLuYi.debug.xcconfig"; sourceTree = "<group>"; };
+		BB0146331E8B96C200AA7F77 /* ETLoginConfirmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETLoginConfirmController.swift; sourceTree = "<group>"; };
 		BB048AEA1E826FE400DB7128 /* PasswordManager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PasswordManager.entitlements; sourceTree = "<group>"; };
 		BB048AEB1E8270AA00DB7128 /* DengLuYi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DengLuYi.entitlements; sourceTree = "<group>"; };
 		BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETDatabaseManager.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */,
 				BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */,
 				BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */,
+				BB0146331E8B96C200AA7F77 /* ETLoginConfirmController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0146341E8B96C200AA7F77 /* ETLoginConfirmController.swift in Sources */,
 				BB441B591E84C63100CDA05C /* ETAccount.swift in Sources */,
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */,
