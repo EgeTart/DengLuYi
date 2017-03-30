@@ -135,6 +135,8 @@ class ETSideBarViewController: UIViewController {
         if let currentUser = AVUser.current() {
             tableHeaderView.userNameLabel.text = currentUser.username
         }
+        
+        configureSessionManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -263,14 +265,17 @@ extension ETSideBarViewController: QRCodeReaderViewControllerDelegate {
         
         let apiUrl = loginInfos[0].replacingOccurrences(of: "-", with: "/")
         let uuid = loginInfos[1]
-        
-        request(apiUrl + "scan", method: .post, parameters: ["uuid": uuid], encoding: JSONEncoding.default, headers: nil).responseString { (response: DataResponse<String>) in
+        let appUrl = loginInfos[2]
+        print(apiUrl)
+        request(apiUrl + "scan", method: .post, parameters: ["uuid": uuid, "url": appUrl], encoding: JSONEncoding.default, headers: nil).responseString { (response: DataResponse<String>) in
             
             if let result = response.value {
-                if result == "confirm" {
+                print(result)
+                if result == "CONFIRM" {
                     let loginConfirmViewController = ETLoginConfirmController()
                     loginConfirmViewController.apiUrl = apiUrl
                     loginConfirmViewController.uuid = uuid
+                    loginConfirmViewController.appUrl = appUrl
                     reader.present(loginConfirmViewController, animated: true, completion: nil)
                 }
                 else {
@@ -288,6 +293,86 @@ extension ETSideBarViewController: QRCodeReaderViewControllerDelegate {
 
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         let _ = reader.navigationController?.popViewController(animated: true)
+    }
+
+}
+
+extension ETSideBarViewController {
+    
+    struct IdentityAndTrust {
+        var identityRef:SecIdentity
+        var trust:SecTrust
+        var certArray:AnyObject
+    }
+    
+    func configureSessionManager() {
+        let manager = SessionManager.default
+        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
+            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+                print("服务端证书验证")
+                let serverTrust: SecTrust = challenge.protectionSpace.serverTrust!
+                let certificate = SecTrustGetCertificateAtIndex(serverTrust, 0)!
+                let remoteCertificateData = CFBridgingRetain(SecCertificateCopyData(certificate))!
+                let cerPath = Bundle.main.path(forResource: "dengLuYi", ofType: "cer")!
+                let cerUrl = URL(fileURLWithPath: cerPath)
+                let localCertificateData = try! Data(contentsOf: cerUrl)
+                
+                if remoteCertificateData.isEqual(localCertificateData) {
+                    let credential = URLCredential(trust: serverTrust)
+                    challenge.sender?.use(credential, for: challenge)
+                    return (URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+                }
+                else {
+                    return (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+                }
+            }
+            else if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate {
+                print("客户端证书验证")
+                let identityAndTrust = self.extractIdentity()
+                
+                let urlCredential = URLCredential(identity: identityAndTrust.identityRef, certificates: identityAndTrust.certArray as? [Any], persistence: URLCredential.Persistence.forSession)
+                
+                return (URLSession.AuthChallengeDisposition.useCredential, urlCredential)
+            }
+            else {
+                print("其它情况（不接受认证）")
+                return (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+            }
+        }
+    }
+    
+    func extractIdentity() -> IdentityAndTrust {
+        var identityAndTrust: IdentityAndTrust!
+        var securityError: OSStatus = errSecSuccess
+        
+        let path = Bundle.main.path(forResource: "dengLuYi", ofType: "p12")!
+        let PKCS12Data = NSData(contentsOfFile: path)!
+        let key = kSecImportExportPassphrase as NSString
+        let options: NSDictionary = [key: "wislab2016"]
+        
+        var items: CFArray?
+        
+        securityError = SecPKCS12Import(PKCS12Data, options, &items)
+        
+        if securityError == errSecSuccess {
+            let certItems: CFArray = items as CFArray!
+            let certItemsArray: Array = certItems as Array
+            let dict: AnyObject? = certItemsArray.first
+            if let certEntry = dict as? Dictionary<String, AnyObject> {
+                let identityPointer = certEntry["identity"]
+                let secIdentityRef = identityPointer as! SecIdentity
+                print("\(identityPointer) ------------------ \(secIdentityRef)")
+                
+                let trustPointer = certEntry["trust"]
+                let trustRef = trustPointer as! SecTrust
+                print("\(trustPointer) ---------------- \(trustRef)")
+                
+                let chainPointer = certEntry["chain"]
+                identityAndTrust = IdentityAndTrust(identityRef: secIdentityRef, trust: trustRef, certArray: chainPointer!)
+            }
+        }
+        
+        return identityAndTrust
     }
 
 }

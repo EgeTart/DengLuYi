@@ -39,6 +39,7 @@ class ETLoginConfirmController: UIViewController {
     
     var uuid: String?
     var apiUrl: String?
+    var appUrl: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,15 +80,17 @@ class ETLoginConfirmController: UIViewController {
     
     @objc private func confirmAction(sender: UIButton) {
         guard let uuid = uuid,
-        let apiUrl = apiUrl
+        let apiUrl = apiUrl,
+        let appUrl = appUrl
         else {
             dismiss(animated: true, completion: nil)
             return
         }
         
-        request(apiUrl + "login", method: .post, parameters: ["uuid": uuid, "username": "egetart", "password": "dengluyi2017"], encoding: JSONEncoding.default, headers: nil).responseString { (response: DataResponse<String>) in
+        request(apiUrl + "login", method: .post, parameters: ["uuid": uuid, "user": "egetart", "password": "dengluyi2017", "url": appUrl], encoding: JSONEncoding.default, headers: nil).responseString { (response: DataResponse<String>) in
             if let result = response.value {
-                if result != "confirm" {
+                print(result)
+                if result != "SUCCESS" {
                     self.showError(errorMessage: "登陆失败")
                 }
                 else {
