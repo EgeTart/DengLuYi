@@ -23,4 +23,15 @@ public struct ETAccount {
         self.phoneNumber = phoneNumber
         self.email = email
     }
+    
+    func toDictionary() -> [String: Any] {
+        var dict: [String: Any] = [:]
+        dict["accountName"] = accountName
+        dict["userName"] = userName
+        dict["password"] = password
+        dict["phoneNumber"] = phoneNumber
+        dict["email"] = email
+        
+        return dict
+    }
 }

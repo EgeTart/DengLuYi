@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import AVOSCloud
 
 class ETAddAccountViewController: UIViewController {
     
@@ -139,7 +140,12 @@ class ETAddAccountViewController: UIViewController {
             successPromptView.completionBlock = {
                 let _ = self.navigationController?.popViewController(animated: true)
             }
-            successPromptView.hide(animated: true, afterDelay: 1.5)
+            successPromptView.hide(animated: true, afterDelay: 1.0)
+            
+            ETUserUtility.updateAccountInfoVersion()
+            let userName = ETUserUtility.currentUserName
+            let accountObject = AVObject(className: userName, dictionary: account!.toDictionary())
+            accountObject.save()
         }
         else {
             let alertController = UIAlertController(title: "信息未填写完整", message: "请填写所有红星标注的必要信息", preferredStyle: .alert)

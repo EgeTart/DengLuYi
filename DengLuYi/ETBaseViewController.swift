@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import MBProgressHUD
 
-class ETBaseViewController: UIViewController {
+class ETBaseViewController: ETViewController {
     
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -41,22 +41,6 @@ class ETBaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
-    
-    func showError(message: String) {
-        let alertController = UIAlertController(title: "错误提示", message: message, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "确定", style: .default, handler: nil)
-        alertController.addAction(confirmAction)
-        present(alertController, animated: true, completion: nil)
-    }
-    
-    func showLoading(text: String) {
-        let loadingView = MBProgressHUD.showAdded(to: self.view, animated: true)
-        loadingView.label.text = "\(text)..."
-    }
-    
-    func dismissLoading() {
-        MBProgressHUD.hide(for: self.view, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

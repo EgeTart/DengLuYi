@@ -75,7 +75,7 @@ fileprivate class ETTableHeaderView: UIView {
     }
 }
 
-class ETSideBarViewController: UIViewController {
+class ETSideBarViewController: ETViewController {
     
     fileprivate let cellReuseIdentifier = "OptionCellReuseIdentifier"
     
@@ -238,11 +238,10 @@ extension ETSideBarViewController: UIImagePickerControllerDelegate, UINavigation
             let data = UIImagePNGRepresentation(compressImage)
             let file = AVFile(name: "avatar.png", data: data!)
             
-            let loadingView = MBProgressHUD.showAdded(to: self.view, animated: true)
-            loadingView.label.text = "正在上传..."
+            self.showLoading(text: "正在上传")
             
             file.saveInBackground({ (success: Bool, error: Error?) in
-                loadingView.hide(animated: true)
+                self.dismissLoading()
                 let user = AVUser.current()
                 user?.setObject(file.url, forKey: "avatarImage")
                 user?.save()

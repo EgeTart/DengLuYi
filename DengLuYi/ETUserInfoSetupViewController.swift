@@ -136,6 +136,7 @@ class ETUserInfoSetupViewController: ETBaseViewController {
                     self.showError(message: error.localizedDescription)
                 }
                 else {
+                    ETUserUtility.updateDefaultUserInfo()
                     self.showRevealController()
                 }
             })

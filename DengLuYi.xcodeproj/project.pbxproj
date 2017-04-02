@@ -19,6 +19,8 @@
 		BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */; };
 		BB124B4F1E8F913F00A0457A /* ETSafeBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB124B4E1E8F913F00A0457A /* ETSafeBrowserViewController.swift */; };
+		BB13477F1E90C7730033029E /* ETViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB13477E1E90C7730033029E /* ETViewController.swift */; };
+		BB1347811E90E82E0033029E /* ETUserUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1347801E90E82E0033029E /* ETUserUtility.swift */; };
 		BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */; };
 		BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */; };
 		BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17092B1E80FF9B001F8AA5 /* ActionViewController.swift */; };
@@ -84,6 +86,8 @@
 		BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		BB124B4E1E8F913F00A0457A /* ETSafeBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSafeBrowserViewController.swift; sourceTree = "<group>"; };
+		BB13477E1E90C7730033029E /* ETViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETViewController.swift; sourceTree = "<group>"; };
+		BB1347801E90E82E0033029E /* ETUserUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETUserUtility.swift; sourceTree = "<group>"; };
 		BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHomeViewController.swift; sourceTree = "<group>"; };
 		BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSideBarViewController.swift; sourceTree = "<group>"; };
 		BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PasswordManager.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +231,7 @@
 				BB955FAD1E778FC000169112 /* DEBUG.swift */,
 				BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */,
 				BB3E682E1E89178500669656 /* UIImageExtension.swift */,
+				BB1347801E90E82E0033029E /* ETUserUtility.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1199CB1E7FF8810089B550 /* SMRevealViewController */,
+				BB13477E1E90C7730033029E /* ETViewController.swift */,
 				BBBADED41E7ADC9C008815CD /* ETBaseViewController.swift */,
 				BBA05BCC1E76BCAB000DA002 /* ETSignInViewController.swift */,
 				BBBADED21E7ADC3D008815CD /* ETSignUpViewController.swift */,
@@ -485,6 +491,7 @@
 			files = (
 				BB0146341E8B96C200AA7F77 /* ETLoginConfirmController.swift in Sources */,
 				BB124B4F1E8F913F00A0457A /* ETSafeBrowserViewController.swift in Sources */,
+				BB1347811E90E82E0033029E /* ETUserUtility.swift in Sources */,
 				BB441B591E84C63100CDA05C /* ETAccount.swift in Sources */,
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */,
@@ -499,6 +506,7 @@
 				BB955FAE1E778FC000169112 /* DEBUG.swift in Sources */,
 				BBC59C161E76C4C500987107 /* bridge.m in Sources */,
 				BB955FAC1E77856700169112 /* UIColorExtension.swift in Sources */,
+				BB13477F1E90C7730033029E /* ETViewController.swift in Sources */,
 				BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */,
 				BB441B5E1E8500C600CDA05C /* ETAccountInfoInputView.swift in Sources */,
 				BBA05BCD1E76BCAB000DA002 /* ETSignInViewController.swift in Sources */,

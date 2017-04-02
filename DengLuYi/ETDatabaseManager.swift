@@ -20,7 +20,13 @@ class ETDatabaseManager {
         return database
     }()
     
+    private var userName: String
+    
     private init() {
+        
+        let userDefault = UserDefaults(suiteName: "group.PasswordExtension")
+        userName = userDefault?.value(forKey: "kUserName") as! String
+        
         createAccountTable()
     }
     
@@ -30,7 +36,7 @@ class ETDatabaseManager {
             return
         }
         
-        let createAccountTableSql = "CREATE TABLE IF NOT EXISTS user_account(id INTEGER PRIMARY KEY AUTOINCREMENT, account_name TEXT NOT NULL UNIQUE, user_name TEXT NOT NULL, email TEXT, phone_number TEXT, password TEXT NOT NULL)"
+        let createAccountTableSql = "CREATE TABLE IF NOT EXISTS \(userName)(id INTEGER PRIMARY KEY AUTOINCREMENT, account_name TEXT NOT NULL UNIQUE, user_name TEXT NOT NULL, email TEXT, phone_number TEXT, password TEXT NOT NULL)"
         let isSuccess = database.executeStatements(createAccountTableSql, withResultBlock: nil)
         
         if isSuccess {
@@ -42,7 +48,7 @@ class ETDatabaseManager {
     }
     
     func loadUserAccounts() -> [ETAccount] {
-        let queryAcountsSql = "SELECT account_name, user_name, password, phone_number, email FROM user_account"
+        let queryAcountsSql = "SELECT account_name, user_name, password, phone_number, email FROM \(userName)"
         
         var accounts = [ETAccount]()
         do {
@@ -83,7 +89,7 @@ class ETDatabaseManager {
             valuesPlaceholder.append(", ?")
         }
         
-        let insertAccountSql = "INSERT INTO user_account(\(fields)) VALUES(\(valuesPlaceholder))"
+        let insertAccountSql = "INSERT INTO \(userName)(\(fields)) VALUES(\(valuesPlaceholder))"
 
         do {
             try database.executeUpdate(insertAccountSql, values: values)
@@ -93,4 +99,17 @@ class ETDatabaseManager {
         }
     }
     
+    func updateUserAccountInfo(accounts: [ETAccount]) {
+        let deleteAccountAccountSql = "DELETE FROM \(userName)"
+        
+        do {
+            try database.executeUpdate(deleteAccountAccountSql, values: nil)
+            for account in accounts {
+                self.addAcount(account: account)
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
 }

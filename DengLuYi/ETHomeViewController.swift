@@ -8,8 +8,9 @@
 
 import UIKit
 import SnapKit
+import AVOSCloud
 
-class ETHomeViewController: UIViewController {
+class ETHomeViewController: ETViewController {
 
     fileprivate let cellReuseIdentifier = "AccountCellReuseIdentifier"
     
@@ -51,6 +52,10 @@ class ETHomeViewController: UIViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        if ETUserUtility.isNeedToUpdateUserAccountDatabase() {
+            updateUerAccountInfo()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +64,7 @@ class ETHomeViewController: UIViewController {
         accountTableView.reloadData()
     }
     
-    func setupInterface() {
+    private func setupInterface() {
         self.title = "账户列表"
         
         self.view.addSubview(accountTableView)
@@ -70,7 +75,7 @@ class ETHomeViewController: UIViewController {
         setupViewsConstraints()
     }
     
-    func setupViewsConstraints() {
+    private func setupViewsConstraints() {
         accountTableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -79,6 +84,40 @@ class ETHomeViewController: UIViewController {
             make.width.height.equalTo(60)
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-30)
+        }
+    }
+    
+    private func updateUerAccountInfo() {
+        let userName = ETUserUtility.currentUserName
+        let query = AVQuery(className: userName)
+        query.limit = 1000
+        query.order(byAscending: "createdAt")
+        query.findObjectsInBackground { (avObjects: [Any]?, error: Error?) in
+            
+            var accounts = [ETAccount]()
+            if let avObjects = avObjects as? [AVObject] {
+                for object in avObjects {
+                
+                    let accountName = object["accountName"] as! String
+                    let userName = object["userName"] as! String
+                    let password = object["password"] as! String
+                    let phoneNumber = object["phoneNumber"] as? String
+                    let email = object["email"] as? String
+                    
+                    let account = ETAccount(accountName: accountName, userName: userName, password: password, phoneNumber: phoneNumber, email: email)
+                    accounts.append(account)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.accounts = accounts
+                self.accountTableView.reloadData()
+            }
+            
+            let queue = DispatchQueue.global()
+            queue.async {
+                ETDatabaseManager.shared.updateUserAccountInfo(accounts: accounts)
+            }
         }
     }
     

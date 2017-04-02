@@ -144,13 +144,14 @@ class ETSignInViewController: ETBaseViewController {
         
         AVUser.logInWithUsername(inBackground: account, password: password) { (user: AVUser?, error: Error?) in
             self.dismissLoading()
-            if let error = error as? NSError {
-                
+            if let _ = error as? NSError {
+                self.showError(message: "请检查用户名或密码是否正确")
             }
             else {
                 let userName = user?.username
                 let masterKey = user?.object(forKey: "masterKey")
                 print(userName!, masterKey!)
+                ETUserUtility.updateDefaultUserInfo()
                 self.showRevealController()
             }
         }
