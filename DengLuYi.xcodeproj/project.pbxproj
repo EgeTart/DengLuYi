@@ -18,6 +18,7 @@
 		BB048AF21E8272D800DB7128 /* ETDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */; };
 		BB048B0D1E82912B00DB7128 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA05BD11E76BCAB000DA002 /* Assets.xcassets */; };
 		BB1199CE1E7FF8990089B550 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */; };
+		BB124B4F1E8F913F00A0457A /* ETSafeBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB124B4E1E8F913F00A0457A /* ETSafeBrowserViewController.swift */; };
 		BB1709221E80C677001F8AA5 /* ETHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */; };
 		BB1709241E80CC2B001F8AA5 /* ETSideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */; };
 		BB17092C1E80FF9B001F8AA5 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB17092B1E80FF9B001F8AA5 /* ActionViewController.swift */; };
@@ -82,6 +83,7 @@
 		BB048AF01E8272D800DB7128 /* ETDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETDatabaseManager.swift; sourceTree = "<group>"; };
 		BB1199CC1E7FF8990089B550 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		BB1199CD1E7FF8990089B550 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		BB124B4E1E8F913F00A0457A /* ETSafeBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSafeBrowserViewController.swift; sourceTree = "<group>"; };
 		BB1709211E80C677001F8AA5 /* ETHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETHomeViewController.swift; sourceTree = "<group>"; };
 		BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETSideBarViewController.swift; sourceTree = "<group>"; };
 		BB1709291E80FF9B001F8AA5 /* PasswordManager.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PasswordManager.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 				BB1709231E80CC2B001F8AA5 /* ETSideBarViewController.swift */,
 				BB441B5B1E85003B00CDA05C /* ETAddAccountViewController.swift */,
 				BB0146331E8B96C200AA7F77 /* ETLoginConfirmController.swift */,
+				BB124B4E1E8F913F00A0457A /* ETSafeBrowserViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB0146341E8B96C200AA7F77 /* ETLoginConfirmController.swift in Sources */,
+				BB124B4F1E8F913F00A0457A /* ETSafeBrowserViewController.swift in Sources */,
 				BB441B591E84C63100CDA05C /* ETAccount.swift in Sources */,
 				BBBADED51E7ADC9C008815CD /* ETBaseViewController.swift in Sources */,
 				BB441B5C1E85003B00CDA05C /* ETAddAccountViewController.swift in Sources */,

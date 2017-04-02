@@ -19,7 +19,7 @@ fileprivate class ETTableHeaderView: UIView {
     
     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
-        if let imageAddress = UserDefaults.standard.object(forKey: "kAvatarImage") as? String {
+        if let imageAddress = AVUser.current()?["avatarImage"] as? String {
             imageView.sd_setImage(with: URL(string: imageAddress), placeholderImage: UIImage(named: "image_avatar"))
         }
         else {
@@ -218,6 +218,9 @@ extension ETSideBarViewController: UITableViewDelegate {
         switch indexPath.row {
         case 0:
             frontViewController.pushViewController(qrCodeReaderController, animated: true)
+        case 1:
+            let safeBrowserViewController = ETSafeBrowserViewController()
+            frontViewController.pushViewController(safeBrowserViewController, animated: true)
         default:
             break
         }
@@ -240,7 +243,9 @@ extension ETSideBarViewController: UIImagePickerControllerDelegate, UINavigation
             
             file.saveInBackground({ (success: Bool, error: Error?) in
                 loadingView.hide(animated: true)
-                UserDefaults.standard.set(file.url, forKey: "kAvatarImage")
+                let user = AVUser.current()
+                user?.setObject(file.url, forKey: "avatarImage")
+                user?.save()
             })
         }
         dismiss(animated: true, completion: nil)
