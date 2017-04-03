@@ -131,6 +131,8 @@ class ETAddAccountViewController: UIViewController {
     @objc private func addAccountAction(sender: UIButton) {
         let (isValid, account) = inputValidCheck()
         
+        self.view.endEditing(true)
+        
         if isValid {
             ETDatabaseManager.shared.addAcount(account: account!)
             let successPromptView = MBProgressHUD.showAdded(to: self.view, animated: true)

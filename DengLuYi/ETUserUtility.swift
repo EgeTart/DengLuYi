@@ -13,7 +13,6 @@ class ETUserUtility {
     
     static let groupName = "group.PasswordExtension"
     static let accountInfoVersionField = "accountInfoVersion"
-    static let accountInfoVersionKey = "kAccountInfoVersion"
     static let userNameKey = "kUserName"
     
     class var currentUserName: String {
@@ -24,8 +23,11 @@ class ETUserUtility {
     class func updateDefaultUserInfo() {
         let user = AVUser.current()
         let userDefault = UserDefaults(suiteName: groupName)
+        userDefault?.set(nil, forKey: "kUserObjectId")
+        userDefault?.set(nil, forKey: userNameKey)
         userDefault?.set(user?.objectId, forKey: "kUserObjectId")
         userDefault?.set(user?.username, forKey: userNameKey)
+        userDefault?.synchronize()
     }
     
     class func updateAccountInfoVersion() {
@@ -40,6 +42,7 @@ class ETUserUtility {
     
     class func isNeedToUpdateUserAccountDatabase() -> Bool {
         let userDefault = UserDefaults(suiteName: groupName)
+        let accountInfoVersionKey = "kAccountInfoVersion\(self.currentUserName)"
         guard let localAccountInfoVersion = userDefault?.value(forKey: accountInfoVersionKey) as? Int,
         let remoteAccountInfoVersion = AVUser.current()?[accountInfoVersionField] as? Int,
         localAccountInfoVersion == remoteAccountInfoVersion
